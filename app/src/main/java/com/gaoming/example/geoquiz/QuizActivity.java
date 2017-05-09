@@ -16,6 +16,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private static final String TAG = "QuizActivity";
     private static final String KEY_INDEX = "index";
+    private static final String KEY_INDEX_CHEAT = "index_cheat";
     private static final String EXTRA_ANSWER_IS_TRUE =
             "com.gaoming.example.geoquiz.answer_is_true";
     private static final int REQUEST_CODE_CHEAT = 0;
@@ -135,6 +136,7 @@ public class QuizActivity extends AppCompatActivity {
         ***/
         if (savedInstanceState != null){
             mCurrentIndex = savedInstanceState.getInt(KEY_INDEX);
+            mIsCheater = savedInstanceState.getBoolean(KEY_INDEX_CHEAT);
         }
         updateQuestion();
     }
@@ -171,6 +173,7 @@ public class QuizActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         Log.d(TAG, "onSaveInstanceState");
         outState.putInt(KEY_INDEX,mCurrentIndex);
+        outState.putBoolean(KEY_INDEX_CHEAT,mIsCheater);
     }
 
     @Override
